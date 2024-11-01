@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeneratorNV</title>
+    <style>
+        body { 
+            display: flex; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            height: 100vh; 
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .sidebar { 
+            width: 250px; 
+            background-color: #f5f5dc; 
+            padding: 15px; 
+            height: 100%; 
+            overflow-y: auto; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+
+        .content { 
+            flex-grow: 1; 
+            height: 100%; 
+            position: relative; 
+            overflow: hidden; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+            background-color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: blue;
+            padding: 10px;
+            background-color: #e0e0e0; 
+        }
+
+        .dark-toggle {
+            text-align: center;
+            font-size: 16px;
+            color: #87ceeb; 
+            cursor: pointer;
+            padding: 10px 0; 
+        }
+
+        .folder { 
+            font-weight: bold; 
+            font-size: 16px; 
+            margin-top: 10px; 
+        }
+
+        .file { 
+            display: block; 
+            color: black; 
+            text-decoration: none; 
+            cursor: pointer; 
+            font-size: 14px; 
+            margin-left: 15px; 
+            padding: 5px 0; 
+        }
+
+        .file:hover, .file:focus { 
+            background-color: #ddd; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <div class="header">
+            GeneratorNV<span class="dotcom">.com</span>
+        </div>
+        
+        <div class="folder">Generators</div>
+        <span class="file" onclick="loadFile('Generators/AIH-Generator.html')">AIH Generator</span>
+        <span class="file" onclick="loadFile('Generators/buisiness_generator.html')">Business Generator</span>
+        <span class="file" onclick="loadFile('Generators/cell_phone_generator.html')">Cell Phone Generator</span>
+        <span class="file" onclick="loadFile('Generators/certificate_generator.html')">Certificate Generator</span>
+        <span class="file" onclick="loadFile('Generators/chassis_generator.html')">Chassis Generator</span>
+        <span class="file" onclick="loadFile('Generators/CNPJ_Generator.html')">CNPJ Generator</span>
+        <span class="file" onclick="loadFile('Generators/CNS_generator.html')">CNS Generator</span>
+        <span class="file" onclick="loadFile('Generators/CPF_generator.html')">CPF Generator</span>
+        <span class="file" onclick="loadFile('Generators/credit_card_generator.html')">Credit Card Generator</span>
+        <span class="file" onclick="loadFile('Generators/debit_card_generator.html')">Debit Card Generator</span>
+        <span class="file" onclick="loadFile('Generators/Drivers_License_Generator.html')">Driver's License Generator</span>
+        <span class="file" onclick="loadFile('Generators/ID_Generator_(IFP RJ).html')">ID Generator (IFP RJ)</span>
+        <span class="file" onclick="loadFile('Generators/ID_Generator_(SSP SP).html')">ID Generator (SSP SP)</span>
+        <span class="file" onclick="loadFile('Generators/Name-generator.html')">Name Generator</span>
+        <span class="file" onclick="loadFile('Generators/NIF_generator.html')">NIF Generator</span>
+        <span class="file" onclick="loadFile('Generators/Passport_generator.html')">Passport Generator</span>
+        <span class="file" onclick="loadFile('Generators/Password_Generator.html')">Password Generator</span>
+        <span class="file" onclick="loadFile('Generators/People_generator.html')">People Generator</span>
+        <span class="file" onclick="loadFile('Generators/PIS_PASEP_Generator.html')">PIS/PASEP Generator</span>
+        <span class="file" onclick="loadFile('Generators/Random_number_generator.html')">Random Number Generator</span>
+        <span class="file" onclick="loadFile('Generators/Renavam_Generator.html')">Renavam Generator</span>
+        <span class="file" onclick="loadFile('Generators/state_registration.html')">State Registration</span>
+        <span class="file" onclick="loadFile('Generators/Telephone_number_generator.html')">Telephone Number Generator</span>
+        <span class="file" onclick="loadFile('Generators/Voter_Registration_Card_Generator.html')">Voter Registration Card Generator</span>
+        <span class="file" onclick="loadFile('Generators/Zip_code_generator.html')">ZIP Code Generator</span>
+
+        <div class="folder">validators</div>
+        <span class="file" onclick="loadFile('validators/validate_AIh.html')">Validate AIH</span>
+        <span class="file" onclick="loadFile('validators/validate_certificate.html')">Validate Certificate</span>
+        <span class="file" onclick="loadFile('validators/validate_chassis.html')">Validate Chassis</span>
+        <span class="file" onclick="loadFile('validators/validate_CNPj.html')">Validate CNPJ</span>
+        <span class="file" onclick="loadFile('validators/validate_CNS.html')">Validate CNS</span>
+        <span class="file" onclick="loadFile('validators/validate_CPF.html')">Validate CPF</span>
+        <span class="file" onclick="loadFile('validators/validate_credit_card.html')">Validate Credit Card</span>
+        <span class="file" onclick="loadFile('validators/validate_debit_card.html')">Validate Debit Card</span>
+        <span class="file" onclick="loadFile('validators/validate_debit_card.html')">Validate Driver's License</span>
+        <span class="file" onclick="loadFile('validators/Validate_ID_(IFP RJ).html')">Validate ID (IFP RJ)</span>
+        <span class="file" onclick="loadFile('validators/Validate_ID_(SSP SP).html')">Validate ID (SSP SP)</span>
+        <span class="file" onclick="loadFile('validators/validate_NIF.html')">Validate NIF</span>
+        <span class="file" onclick="loadFile('validators/Validate_PIS_PASEP.html')">Validate PIS/PASEP</span>
+        <span class="file" onclick="loadFile('validators/Validate_Renavam.html')">Validate Renavam</span>
+        <span class="file" onclick="loadFile('validators/validate-voter_registration .html')">Validate Voter Registration</span>
+        <span class="file" onclick="loadFile('validators/validate_zip_code.html')">Validate ZIP Code</span>
+
+        <div class="folder">Printing Tools</div>
+        <span class="file" onclick="loadFile('Printing Tools/Print_Bingo_Cards.html')">Print Bingo Cards</span>
+        <span class="file" onclick="loadFile('Printing Tools/Print_Post_Office_Labels.html')">Print Post Office Labels</span>
+        <span class="file" onclick="loadFile('Printing Tools/Print_Raffle_Tickets.html')">Print Raffle Tickets</span>
+        <span class="file" onclick="loadFile('Printing Tools/Print_Declaration_of_Residence.html')">Print Declaration of Residence</span>
+
+
+        <div class="folder">Lotteries</div>
+        <span class="file" onclick="loadFile('Lotteries/Double_Sena_Generator.html')">Double Sena Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Lotofácil_Generator.html')">Lotofácil Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Lotomania_Generator.html')">Lotomania Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Lucky_Day_Generator.html')">Lucky Day Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Mega_Sena_Generator.html')">Mega Sena Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Quina_Generator.html')">Quina Generator</span>
+        <span class="file" onclick="loadFile('Lotteries/Timemania_Generator.html')">Timemania Generator</span>
+
+
+        <div class="folder">Mathematics</div>
+        <span class="file" onclick="loadFile('Mathematics/Percentage_Calculator.html')">Percentage Calculator</span>
+        <span class="file" onclick="loadFile('Mathematics/ROI_Calculator.html')">ROI Calculator</span>
+        <span class="file" onclick="loadFile('Mathematics/Simple_Rule_of_Three_Calculato.html')">Simple Rule of Three Calculato</span>
+        <span class="file" onclick="loadFile('Mathematics/Square_Meter_Calculator.html')">Square Meter Calculator</span>
+
+
+        <div class="folder">Text_manipulation</div>
+        <span class="file" onclick="loadFile('Text_manipulation/Caesar_Cipher.html')">Caesar Cipher</span>
+        <span class="file" onclick="loadFile('Text_manipulation/Character_Word_and_Line_Counter.html')">Character Word and Line Counter</span>
+        <span class="file" onclick="loadFile('Text_manipulation/Invert_Text.html')">Invert Text</span>
+        <span class="file" onclick="loadFile('Text_manipulation/Remove_Duplicate_Rows.html')">Remove Duplicate Rows</span>
+        <span class="file" onclick="loadFile('Text_manipulation/Shuffle_Letters.html')">Shuffle Letters</span>
+        <span class="file" onclick="loadFile('Text_manipulation/Word_Scramble.html')">Word Scramble</span>
+
+
+        <div class="folder">Network_Internet</div>
+        <span class="file" onclick="loadFile('Network_Internet/My_browser.html')">My browser</span>
+        <span class="file" onclick="loadFile('Network_Internet/My_IP.html')">My IP</span>
+        <span class="file" onclick="loadFile('Network_Internet/My_operating_system.html')">My operating system</span>
+
+
+        <div class="folder">Codification</div>
+        <span class="file" onclick="loadFile('Codification/Convert_to_Camel_Case.html')">Convert to Camel Case</span>
+        <span class="file" onclick="loadFile('Codification/Convert_to_Kebab_Case.html')">Convert to ebab Case</span>
+        <span class="file" onclick="loadFile('Codification/Convert_to_Pascal_Case.html')">Convert to Pascal Case</span>
+        <span class="file" onclick="loadFile('Codification/Convert_to_Snack_Case.html')">Convert to Snack Case</span>
+        <span class="file" onclick="loadFile('Codification/UTM_Generator .html')">UTM Generator </span>
+        <span class="file" onclick="loadFile('Codification/UUID_Generator.html')">UUID Generator</span>
+
+
+        <div class="folder">Dates and Times</div>
+        <span class="file" onclick="loadFile('Dates and Times/Add_Days_to_Dates.html')">Add Days to Dates</span>
+        <span class="file" onclick="loadFile('Dates and Times/Calculate_Age.html')">Calculate Age</span>
+        <span class="file" onclick="loadFile('Dates and Times/Days_Calculator.html')">Days Calculator</span>
+        <span class="file" onclick="loadFile('Dates and Times/Difference_Between_Dates.html')">Difference Between Dates</span>
+        <span class="file" onclick="loadFile('Dates and Times/Hours_Calculator.html')">Hours Calculator</span>
+        <span class="file" onclick="loadFile('Dates and Times/Months_Calculator.html')">Months Calculator</span>
+        <span class="file" onclick="loadFile('Dates and Times/Subtract_Days_from_Dates.html')">Subtract Days from Dates</span>
+        <span class="file" onclick="loadFile('Dates and Times/Weeks_Calculator.html')">Weeks Calculator</span>
+
+
+        <div class="folder">Currency Converter</div>
+        <span class="file" onclick="loadFile('Currency Converter/Argentine_Peso Today.html')">Argentine Peso Today</span>
+        <span class="file" onclick="loadFile('Currency Converter/Bitcoin_Today.html')">Bitcoin Today</span>
+        <span class="file" onclick="loadFile('Currency Converter/Dollar_Today.html')">Dollar Today</span>
+        <span class="file" onclick="loadFile('Currency Converter/Ethereum_Today.html')">Ethereum Today</span>
+        <span class="file" onclick="loadFile('Currency Converter/Euro_Today .html')">Euro Today</span>
+        <span class="file" onclick="loadFile('Currency Converter/Libra_Today.html')">Libra Today</span>
+
+
+        <div class="folder">Health</div>
+        <span class="file" onclick="loadFile('Health/BMI_Calculator.html')">BMI Calculator</span>
+        <span class="file" onclick="loadFile('Health/Harris_Benedict_Calculator.html')">Harris Benedict Calculator</span>
+        <span class="file" onclick="loadFile('Health/Hydration_Calculator.html')">Hydration Calculator</span>
+
+
+        <div class="folder">Social media</div>
+        <span class="file" onclick="loadFile('Social media/Telegram_Link_Generator.html')">Telegram Link Generator</span>
+        <span class="file" onclick="loadFile('Social media/WhatsApp_Link_Generator.html')">WhatsApp Link Generator</span>
+
+
+        <div class="folder">Converter</div>
+        <span class="file" onclick="loadFile('Converter/Mercosur_Plate_Converter.html')">Mercosur Plate Converter</span>
+        <span class="file" onclick="loadFile('Converter/Temperature_converter.html')">Temperature converter</span>
+
+
+        <div class="folder">Several</div>
+        <span class="file" onclick="loadFile('Several/PIX_logoes_in_PNG.html')">PIX logoes in PNG</span>
+
+
+        <div class="folder">Latest Lottery Results</div>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Dupla_Sena_Results.html')">Latest Dupla Sena Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Lotofácil_Results.html')">Latest Lotofácil Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Lotomania_Results.html')">Latest Lotomania Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Lucky_Day_Results.html')">Latest Lucky Day Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Mega_Sena_Results.html')">Latest Mega Sena Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Quina_Results.html')">Latest Quina Results</span>
+        <span class="file" onclick="loadFile('Latest Lottery Results/Latest_Timemania_Results.html')">Latest Timemania Results</span>
+
+
+
+
+
+    </div>
+
+    <div class="content">
+        <iframe id="contentFrame" src=""></iframe>
+    </div>
+</div>
+
+<script>
+    function loadFile(filePath) {
+        document.getElementById('contentFrame').src = filePath;
+        document.title = filePath.split('/').pop();
+    }
+</script>
+</body>
+</html>
